@@ -8,7 +8,7 @@ interface inputSpaceInterface {
   type: string;
 }
 
-const inputSpace: React.FC<inputSpaceInterface> = ({
+const InputSpace: React.FC<inputSpaceInterface> = ({
   classList,
   placeholder,
   type,
@@ -22,11 +22,11 @@ const inputSpace: React.FC<inputSpaceInterface> = ({
         placeholder={placeholder}
         value={value}
         type={type}
-        onChange={(e) => {
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
           setValue(e.target.value)
         }}
       />
     </>
   );
 };
-export default inputSpace;
+export default InputSpace;

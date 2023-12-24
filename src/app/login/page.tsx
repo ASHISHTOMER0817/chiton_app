@@ -11,8 +11,9 @@ const Login = () => {
     const submitLoginDetails = () => {
         router.push('./')
     }
+    
     const register = () => {
-        router.push('../register')
+        router.push('./')
     }
 
   const loginarr = [
