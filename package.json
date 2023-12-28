@@ -8,9 +8,21 @@
     "start": "next start",
     "lint": "next lint"
   },
+    "compilerOptions": {
+      "baseUrl": "src",
+      "paths": {
+        "@/*": ["*"]
+      }
+    },
+  
   "dependencies": {
+    "axios": "^1.6.2",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.2",
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.3",
     "next": "14.0.4",
+    "nodemailer": "^6.9.7",
     "react": "^18",
     "react-dom": "^18"
   },

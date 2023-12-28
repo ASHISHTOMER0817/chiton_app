@@ -1,6 +1,6 @@
 "use client";
 import InputSpace from "@/app/components/inputSpace"
-
+import newUsers from "@/app/components/newUsers"
 
 const Register: any = () => {
   const registerArr = [
@@ -25,6 +25,8 @@ const Register: any = () => {
       type: "Number",
     },
   ]
+
+newUsers()
   return (
     <div className="d-flex flex-column justify-content-center align-items-center border bg-danger">
       <h2>First Time</h2>
