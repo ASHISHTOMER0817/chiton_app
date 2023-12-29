@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import InputSpace from "@/app/components/inputSpace"
 import newUsers from "@/app/components/newUsers"
 

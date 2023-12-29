@@ -1,23 +1,7 @@
 import axios from 'axios'
-import { exit } from 'process';
 
 
-export async function DataFetch () {
-//       const options = {
-//             method: 'GET',
-//             url: 'https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/regions/list',
-//   headers: {
-//         'X-RapidAPI-Key': 'b1de8876damsh6882c98db67483bp17156djsnced71ceb7ee8',
-//         'X-RapidAPI-Host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
-//       }
-// };
-
-// try {
-//       const response = await axios.request(options);
-// 	console.log(response.data);
-// } catch (error) {
-//       console.error(error);
-// }
+export async function GET () {
 
 const axios = require('axios');
 
@@ -38,6 +22,8 @@ const options = {
 try {
 	const response = await axios.request(options);
 	console.log(response.data)
+      const productDetails = response.data
+      return productDetails;
 //      process.exit()
       
 } catch (error) {
