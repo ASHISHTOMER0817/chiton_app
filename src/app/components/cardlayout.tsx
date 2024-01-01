@@ -1,21 +1,21 @@
-'use client'
 import Image from "next/image";
 import React from "react";
 
 interface HomePage {
 	image: string;
-	alternate: string;
-	title: string;
+	name: string;
 	price: string;
+	alternate: string
+
 }
 
-const HomeData:React.FC<HomePage> =({ image, alternate, title, price }) => {
+const CardLayout:React.FC<HomePage> =({ image, alternate, name, price }) => {
 	return (
-		<div>
+		<div >
 			<Image src={image} alt={alternate} width={200} height={350} />
-			<p>{title}</p>
+			<p>{name}</p>
 			<p>{price}</p>
 		</div>
 	);
 };
-export default HomeData;
+export default CardLayout;

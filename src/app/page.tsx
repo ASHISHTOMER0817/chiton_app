@@ -1,117 +1,76 @@
-'use client'
+// 'use client'
 
 // import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import Header from "./components/header";
+import CardLayout from "./components/cardlayout";
+import fetchedData from "./components/fetchedData";
 import Image from "next/image";
-import React, { useEffect } from "react";
-import Logo from "../../public/static/icons/Logo.svg";
-import { useRouter } from "next/navigation";
-import { DataFetch } from "./api/homePageData/route";
-import { HomeCards } from "./components/homeCards";
-export default function Home() {
-	// useEffect(()=> {DataFetch()}, [])
 
-	const router = useRouter();
-	const loginPath = () => {
-		router.push("./login");
-	};
+interface Product {
+	name: string;
+	
+}
+
+export default async function Home() {
+
+	const data = await fetchedData("list")
+
 	return (
-		// <div className="mx-5 mt-3 ">
-		// 	<header className=" d-flex bg-success ms-0 ">
-		// 		<Image
-		// 			src={Logo}
-		// 			className="border bg-danger border-primary w-10 h-10"
-		// 			alt="Chiton Logo"
-		// 		></Image>
-
-		// 		<nav className="container row align-items-center text-center">
-		// 			<h5 className="border col border-primary ">
-		// 				Men
-		// 			</h5>
-		// 			<h5 className="border col border-primary ">
-		// 				Women
-		// 			</h5>
-		// 			<h5 className="border col border-primary ">
-		// 				Children
-		// 			</h5>
-		// 			<h5
-		// 				className="border col border-primary  "
-		// 				onClick={loginPath}
-		// 			>
-		// 				Login
-		// 			</h5>
-		// 		</nav>
-		// 	</header>
-		// 	<section className="d-flex justify-content-center">
-		// 		<input
-		// 			placeholder="Search Here"
-		// 			className=""
-		// 			type="text"
-		// 			id="home_search"
-		// 		/>
-		// 		<label htmlFor="home_search" className=" ms-2">
-		// 			{" "}
-		// 			Search
-		// 		</label>{" "}
-		// 	</section>
-		// 	<section>
-		// 		<h3>Clothing</h3>
-		// 		{/* Clothing cards will come here */}
-		// 		<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 		</div>
-		// 	</section>
-		// 	<section>
-		// 		<h3>T-shirt</h3>
-		// 		{/* T-shirt cards will come here */}
-    //     <div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
+		<div className="mx-5 mt-3 ">
+			<Header/>
+			<section>
+				<h3>Clothing</h3>
+				{/* Clothing cards will come here */}
+				<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
 					
-		// 		</div>
-		// 	</section>
-		// 	<section>
-		// 		<h3>Jeans</h3>
-		// 		{/* Jeans cards will come here */}
-    //     <div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-		// 			<p>Card</p>
-					
-		// 		</div>
-		// 	</section>
-		// 	<footer className=" d-flex justify-content-around">
-		// 		<ul>
-		// 			<li>Custom Designs</li>
-		// 			<li>Seller Section</li>
-		// 			<li>Costumes</li>
-		// 		</ul>
-		// 		<ul>
-		// 			<li>Address</li>
-		// 			<li>Contact Us</li>
-		// 			<li>Connect With Us</li>
-		// 		</ul>
-		// 		<div>Space to draw</div>
-		// 	</footer>
-		// </div>
-
-
-    <div>
-      <HomeCards/>
-    </div>
+					<Image width={200} height={350} src={data.results[5]?.images[0]?.url} alt={data.results[0]?.images[0]?.baseUrl}/>
+					{data.results?.map(({images, name, price}: any)=> {
+						
+						return <CardLayout image={images[0]?.url} alternate= {images[0]?.baseUrl} name={name} price={price?.formattedValue} />
+						
+					})}
+				</div>
+			</section>
+			<section>
+				<h3>T-shirt</h3>
+				{/* T-shirt cards will come here */}
+				<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+				</div>
+			</section>
+			<section>
+				<h3>Jeans</h3>
+				{/* Jeans cards will come here */}
+				<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+					<p>Card</p>
+				</div>
+			</section>
+			<footer className=" d-flex justify-content-around">
+				<ul>
+					<li>Custom Designs</li>
+					<li>Seller Section</li>
+					<li>Costumes</li>
+				</ul>
+				<ul>
+					<li>Address</li>
+					<li>Contact Us</li>
+					<li>Connect With Us</li>
+				</ul>
+				<div>Space to draw</div>
+			</footer>
+		</div>
 	);
 }

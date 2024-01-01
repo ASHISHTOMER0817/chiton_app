@@ -3,6 +3,7 @@ import InputSpace from "@/app/components/inputSpace"
 import newUsers from "@/app/components/newUsers"
 
 const Register: any = () => {
+
   const registerArr = [
     {
       placeholder: "Your Name",
@@ -26,6 +27,7 @@ const Register: any = () => {
     },
   ]
 
+
 newUsers()
   return (
     <div className="d-flex flex-column justify-content-center align-items-center border bg-danger">
@@ -36,8 +38,12 @@ newUsers()
           placeholder={placeholder}
           type={type}
           classList={" mt-3"}
+          
           />)
       })}
+      <p onClick={() => {
+
+      }}>Submit</p>
     </div>
   );
 };

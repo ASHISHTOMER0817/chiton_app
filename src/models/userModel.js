@@ -1,4 +1,4 @@
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 const userSchema = mongoose.Schema(
   {
@@ -16,6 +16,11 @@ const userSchema = mongoose.Schema(
       type: String,
       required: [true, "Please provide a username"],
       unique: true,
+    },
+    PhoneNumber: {
+      type: String,
+      required: true,
+      unique: true
     },
     isVerified: {
       type: Boolean,
