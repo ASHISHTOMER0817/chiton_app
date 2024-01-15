@@ -13,7 +13,7 @@ const CardLayout:React.FC<HomePage> =({ image, alternate, name, price }) => {
 	return (
 		<div >
 			<Image src={image} alt={alternate} width={200} height={350} />
-			<p>{name}</p>
+			<p className="">{name}</p>
 			<p>{price}</p>
 		</div>
 	);

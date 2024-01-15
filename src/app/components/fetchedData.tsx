@@ -10,7 +10,6 @@ export default async function fetchedData(path: String) {
       lang: 'en',
       country: 'us',
       productcode: '0839915011',
-      pagesize: 2
     },
     headers: {
       'X-RapidAPI-Key': 'b1de8876damsh6882c98db67483bp17156djsnced71ceb7ee8',

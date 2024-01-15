@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '@/css/globals.css'
+// import '@/css/input.css'
+// import "tailwindcss/base"
 import React from 'react'
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,6 +18,10 @@ export default function RootLayout({
 }) {
   return (
     <html className='' lang="en">
+      <head>
+      <script src="https://cdn.tailwindcss.com"></script>
+      {/* <link rel="stylesheet" href="../css/input.css"></link> */}
+      </head>
       <body className={inter.className}>{children}</body>
     </html>
   )

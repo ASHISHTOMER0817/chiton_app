@@ -1,11 +1,12 @@
 // 'use client'
 
-// import "bootstrap/dist/css/bootstrap.min.css";
 import React from "react";
 import Header from "./components/header";
 import CardLayout from "./components/cardlayout";
 import fetchedData from "./components/fetchedData";
 import Image from "next/image";
+import homeImage from "../../public/homeImage.jpg"
+// import Head from 'next/head'
 
 interface Product {
 	name: string;
@@ -14,17 +15,28 @@ interface Product {
 
 export default async function Home() {
 
-	const data = await fetchedData("list")
+	// const data = await fetchedData("list")
 
 	return (
-		<div className="mx-5 mt-3 ">
+		<div className=" ">
+			<div  className="relative ">
+			<Image src={homeImage} className="h-screen absolute z-10" alt="image"/>
 			<Header/>
-			<section>
+			<ul className="flex-col items-center z-30">
+			 <li>FASHION AND SHOWS</li>
+			 <li>WHAT NEWS </li>
+			 <li>TODAY</li>
+			 <li>Look at the sunset life is amazing life is beautiful, life is what you make it</li>
+			</ul>
+			</div>
+		</div>
+	);
+}
+			{/*<section>
 				<h3>Clothing</h3>
-				{/* Clothing cards will come here */}
 				<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
 					
-					<Image width={200} height={350} src={data.results[5]?.images[0]?.url} alt={data.results[0]?.images[0]?.baseUrl}/>
+					
 					{data.results?.map(({images, name, price}: any)=> {
 						
 						return <CardLayout image={images[0]?.url} alternate= {images[0]?.baseUrl} name={name} price={price?.formattedValue} />
@@ -34,7 +46,6 @@ export default async function Home() {
 			</section>
 			<section>
 				<h3>T-shirt</h3>
-				{/* T-shirt cards will come here */}
 				<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
 					<p>Card</p>
 					<p>Card</p>
@@ -47,7 +58,6 @@ export default async function Home() {
 			</section>
 			<section>
 				<h3>Jeans</h3>
-				{/* Jeans cards will come here */}
 				<div className="d-flex card-homePage flex-wrap mt-3 justify-content-center align-items-center">
 					<p>Card</p>
 					<p>Card</p>
@@ -70,7 +80,4 @@ export default async function Home() {
 					<li>Connect With Us</li>
 				</ul>
 				<div>Space to draw</div>
-			</footer>
-		</div>
-	);
-}
+			</footer> */}

@@ -1,10 +1,36 @@
 import Logo from '../../../public/Logo.svg'
 import Image from 'next/image'
 import Link from 'next/link'
+import searchIcon from '../../../public/ei-search-inactive.svg'
+// import homeImage from '../../../public/homeImage.jpg'
+
+// import Login from '../login/page'
 
 export default function Header () {
       return (
-            <>
+	<>
+	<header className="flex justify-between">
+		<Image src={Logo} alt='Logo'/>
+		<ul className='flex justify-around items-center'>
+			<li>HOME</li>
+			<li>SHOPS</li>
+			<li>COLLECTION</li>
+			<li>BLOG</li>
+			<li>PAGES</li>
+			<li>CONTACT</li>
+		</ul>
+		<div className='flex justify-center items-center'>
+			<Image src={searchIcon} alt='icon'/>
+			<Image src={searchIcon} alt='icon'/>
+			<Image src={searchIcon} alt='icon'/>
+		</div>
+		</header></>
+
+      )
+}
+
+
+{/* <>
             <header className=" d-flex bg-success ms-0 ">
 				<Image
 					src={Logo}
@@ -14,13 +40,13 @@ export default function Header () {
 
 				<nav className="container row align-items-center text-center">
 					<h5 className="border col border-primary ">
-						Men
+						<Link href={'/login'}>login</Link>
 					</h5>
 					<h5 className="border col border-primary ">
-						Women
+						<Link href={'/productPage'}>product Pages</Link>
 					</h5>
 					<h5 className="border col border-primary ">
-						Children
+					<Link href={'/register'}>Register</Link>	
 					</h5>
 
 					<h5>
@@ -39,6 +65,4 @@ export default function Header () {
 					{" "}
 					Search
 				</label>{" "}
-			</section></>
-      )
-}
+	</section></> */}
